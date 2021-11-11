@@ -27,7 +27,9 @@ const OpenInNativeButton = () => {
       <TouchableOpacity
         style={[style.btn, {borderColor: primaryColor}]}
         onPress={() => openInNative()}>
-        <Text style={[style.btnText, {color: '#fff'}]}>Open in Desktop</Text>
+        <Text style={[style.btnText, {color: '#fff'}]}>
+          Открыть на рабочем столе
+        </Text>
       </TouchableOpacity>
     </View>
   ) : (

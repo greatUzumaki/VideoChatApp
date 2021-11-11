@@ -165,13 +165,13 @@ const PinnedVideo = () => {
                             {user.uid === 'local'
                               ? userList[localUid]
                                 ? userList[localUid].name.slice(0, 20) + ' '
-                                : 'You '
+                                : 'Вы '
                               : userList[user.uid]
                                 ? userList[user.uid].name.slice(0, 20) + ' '
                                 : user.uid === 1
-                                  ? (userList[localUid]?.name + "'s screen ").slice(0, 20)
+                                  ? (userList[localUid]?.name + " экран ").slice(0, 20)
                                   : String(user.uid)[0] === '1' ?
-                                    'PSTN User ' : 'User '}
+                                    'PSTN Пользователь ' : 'Пользователь '}
                           </Text>
                         </View>
                       </View>
@@ -199,7 +199,7 @@ const PinnedVideo = () => {
                   if (maxUsers[0].uid === 'local') {
                     return FallbackLogo(userList[localUid]?.name);
                   } else if (String(maxUsers[0].uid)[0] === '1') {
-                    return FallbackLogo('PSTN User');
+                    return FallbackLogo('PSTN Пользователь');
                   } else {
                     return FallbackLogo(userList[maxUsers[0].uid]?.name);
                   }
@@ -226,12 +226,12 @@ const PinnedVideo = () => {
                   {maxUsers[0].uid === 'local'
                     ? userList[localUid]
                       ? userList[localUid].name.slice(0,20) + ' '
-                      : 'You '
+                      : 'Вы '
                     : userList[maxUsers[0].uid]
                     ? userList[maxUsers[0].uid].name.slice(0,20) + ' '
                     : maxUsers[0].uid === 1
-                    ? (userList[localUid].name + "'s screen ").slice(0,20)
-                    : 'User '}
+                    ? (userList[localUid].name + " экран ").slice(0,20)
+                    : 'Пользователь '}
                 </Text>
               </View>
             </View>

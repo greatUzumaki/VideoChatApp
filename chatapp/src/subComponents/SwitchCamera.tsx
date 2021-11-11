@@ -8,7 +8,7 @@ function SwitchCamera() {
   return (
     <BtnTemplate
       name={'switchCamera'}
-      btnText={'Switch'}
+      btnText={'Перевернуть'}
       style={{
         backgroundColor: $config.SECONDARY_FONT_COLOR, //'#fff',
         borderRadius: 23,

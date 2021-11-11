@@ -48,62 +48,62 @@ const Share = (props: any) => {
   };
 
   const copyToClipboard = () => {
-    Toast.show({ text1: 'Copied to Clipboard', visibilityTime: 1000 });
+    Toast.show({ text1: 'Скопировано в буфер обмена', visibilityTime: 1000 });
     let stringToCopy = '';
 
     $config.FRONTEND_ENDPOINT
       ? hostControlCheckbox
-        ? (stringToCopy += `Meeting - ${roomTitle}
-URL for Attendee: ${$config.FRONTEND_ENDPOINT}/${urlView}
-URL for Host: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
-        : (stringToCopy += `Meeting - ${roomTitle}
-Meeting URL: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
+        ? (stringToCopy += `Встреча - ${roomTitle}
+URL для Входа: ${$config.FRONTEND_ENDPOINT}/${urlView}
+URL для Хоста: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
+        : (stringToCopy += `Встреча - ${roomTitle}
+URL встречи: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
       : platform === 'web'
       ? hostControlCheckbox
-        ? (stringToCopy += `Meeting - ${roomTitle}
-URL for Attendee: ${window.location.origin}/${urlView}
-URL for Host: ${window.location.origin}/${urlHost}`)
-        : (stringToCopy += `Meeting - ${roomTitle}
-Meeting URL: ${window.location.origin}/${urlHost}`)
+        ? (stringToCopy += `Встреча - ${roomTitle}
+URL для Входа: ${window.location.origin}/${urlView}
+URL для Хоста: ${window.location.origin}/${urlHost}`)
+        : (stringToCopy += `Встреча - ${roomTitle}
+URL встречи: ${window.location.origin}/${urlHost}`)
       : hostControlCheckbox
-      ? (stringToCopy += `Meeting - ${roomTitle}
-Attendee Meeting ID: ${urlView}
-Host Meeting ID: ${urlHost}`)
-      : (stringToCopy += `Meeting - ${roomTitle}
-Meeting URL: ${urlHost}`);
+      ? (stringToCopy += `Встречи - ${roomTitle}
+ID встречи: ${urlView}
+ID хоста: ${urlHost}`)
+      : (stringToCopy += `Встреча - ${roomTitle}
+URL встречи: ${urlHost}`);
 
     pstn
-      ? (stringToCopy += `PSTN Number: ${pstn.number}
-PSTN Pin: ${pstn.dtmf}`)
+      ? (stringToCopy += `PSTN номер: ${pstn.number}
+PSTN пин: ${pstn.dtmf}`)
       : '';
     Clipboard.setString(stringToCopy);
   };
 
   const copyHostUrl = () => {
-    Toast.show({ text1: 'Copied to Clipboard',  visibilityTime: 1000});
+    Toast.show({ text1: 'Скопировано в буфер обмена',  visibilityTime: 1000});
     let stringToCopy = '';
     $config.FRONTEND_ENDPOINT
       ? (stringToCopy += `${$config.FRONTEND_ENDPOINT}/${urlHost}`)
       : platform === 'web'
       ? (stringToCopy += `${window.location.origin}/${urlHost}`)
-      : (stringToCopy += `Meeting ID: ${urlHost}`)
+      : (stringToCopy += `ID встречи: ${urlHost}`)
     Clipboard.setString(stringToCopy);
   };
 
   const copyAttendeeURL = () => {
-    Toast.show({ text1: 'Copied to Clipboard',  visibilityTime: 1000});
+    Toast.show({ text1: 'Скопирован в буфер обменаобмена обмена',  visibilityTime: 1000});
     let stringToCopy = '';
     $config.FRONTEND_ENDPOINT
       ? (stringToCopy += `${$config.FRONTEND_ENDPOINT}/${urlView}`)
       : platform === 'web'
       ? (stringToCopy += `${window.location.origin}/${urlView}`)
-      : (stringToCopy += `Meeting ID: ${urlView}`)
+      : (stringToCopy += `ID встречи: ${urlView}`)
     Clipboard.setString(stringToCopy);
   };
 
   const copyPstn = () => {
-    Toast.show({ text1: 'Copied to Clipboard',  visibilityTime: 1000});
-    let stringToCopy = `PSTN Number: ${pstn?.number} PSTN Pin: ${pstn?.dtmf}`;
+    Toast.show({ text1: 'Скопировано в буфер обмена',  visibilityTime: 1000});
+    let stringToCopy = `PSTN номер: ${pstn?.number} PSTN пин: ${pstn?.dtmf}`;
     Clipboard.setString(stringToCopy);
   }
 
@@ -128,7 +128,7 @@ PSTN Pin: ${pstn.dtmf}`)
               <View style={{width: '80%'}}>
               <Text style={style.urlTitle}>
                 {$config.FRONTEND_ENDPOINT || platform === 'web'
-                ? "Attendee URL" : "Attendee ID"}
+                ? "URL участника" : "ID участника"}
               </Text>
               <View style={style.urlHolder}>
                 <Text style={[style.url, Platform.OS === 'web' ? urlWeb : {opacity: 1}]}>
@@ -157,8 +157,8 @@ PSTN Pin: ${pstn.dtmf}`)
           <View style={{ width: '80%' }}>
             <Text style={style.urlTitle}>
             {$config.FRONTEND_ENDPOINT || platform === 'web' ? hostControlCheckbox
-                ? 'Host URL' : 'Meeting URL'
-                : hostControlCheckbox ? 'Host ID' : 'Meeting ID'}
+                ? 'URL хоста' : 'URL встречи'
+                : hostControlCheckbox ? 'ID хоста' : 'ID встречи'}
             </Text>
             <View style={style.urlHolder}>
               <Text style={[style.url, Platform.OS === 'web' ? urlWeb : {opacity: 1}]}>
@@ -211,12 +211,12 @@ PSTN Pin: ${pstn.dtmf}`)
         )}
         <PrimaryButton
           onPress={() => enterMeeting()}
-          text={'Start Meeting (as host)'}
+          text={'Начать встречу (как хост)'}
         />
         <View style={{height: 10}} />
         <SecondaryButton
           onPress={() => copyToClipboard()}
-          text={'Copy invite to clipboard'}
+          text={'Скопировать приглашение в буфер обмена'}
         />
       </View>
       {/* {dim[0] > dim[1] + 150 ? (

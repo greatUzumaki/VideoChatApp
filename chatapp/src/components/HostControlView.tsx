@@ -20,7 +20,7 @@ const HostControlView = () => {
   const {primaryColor} = useContext(ColorContext);
   return (
     <>
-      <Text style={style.heading}>Host Controls</Text>
+      <Text style={style.heading}>Контроль хоста</Text>
       <View>
         <View style={style.btnContainer}>
           <SecondaryButton
@@ -35,6 +35,7 @@ const HostControlView = () => {
           />
         </View>
       </View>
+      <Text>Создать опрос</Text>
     </>
   );
 };

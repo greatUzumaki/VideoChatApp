@@ -41,31 +41,31 @@ const ParticipantView = (props: {showText?: boolean}) => {
     variables: {passphrase: phrase},
   });
   const copyToClipboard = () => {
-    Toast.show({text1: 'Copied to Clipboard', visibilityTime: 1000});
+    Toast.show({text1: 'Скопировано в буфер обмена', visibilityTime: 1000});
     if (data && !loading) {
       let stringToCopy = '';
       if ($config.FRONTEND_ENDPOINT) {
-        stringToCopy += `Meeting - ${data.share.title}\nURL for Attendee: ${$config.FRONTEND_ENDPOINT}/${data.share.passphrase.view}`;
+        stringToCopy += `Встреча - ${data.share.title}\nURL для участия: ${$config.FRONTEND_ENDPOINT}/${data.share.passphrase.view}`;
         if (data.share.passphrase.host) {
-          stringToCopy += `\nURL for Host: ${$config.FRONTEND_ENDPOINT}/${data.share.passphrase.host}`;
+          stringToCopy += `\nURL для хоста: ${$config.FRONTEND_ENDPOINT}/${data.share.passphrase.host}`;
         }
       } else {
         if (platform === 'web') {
-          stringToCopy += `Meeting - ${data.share.title}\nURL for Attendee: ${window.location.origin}/${data.share.passphrase.view}`;
+          stringToCopy += `Встреча - ${data.share.title}\nURL для участия: ${window.location.origin}/${data.share.passphrase.view}`;
           if (data.share.passphrase.host) {
-            stringToCopy += `\nURL for Host: ${window.location.origin}/${data.share.passphrase.host}`;
+            stringToCopy += `\nURL для хоста: ${window.location.origin}/${data.share.passphrase.host}`;
           }
         } else {
-          stringToCopy += `Meeting - ${data.share.title}\nAttendee Meeting ID: ${data.share.passphrase.view}`;
+          stringToCopy += `Встреча - ${data.share.title}\nID Участияя: ${data.share.passphrase.view}`;
           if (data.share.passphrase.host) {
-            stringToCopy += `\nHost Meeting ID: ${data.share.passphrase.host}`;
+            stringToCopy += `\nID хоста: ${data.share.passphrase.host}`;
           }
         }
       }
       if (data.share.pstn) {
-        stringToCopy += `\nPSTN Number: ${data.share.pstn.number}\nPSTN Pin: ${data.share.pstn.dtmf}`;
+        stringToCopy += `\nPSTN номер: ${data.share.pstn.number}\nPSTN пин: ${data.share.pstn.dtmf}`;
       }
-      console.log('Copying string to clipboard:', stringToCopy);
+      console.log('Копирование строки в буфер обмена:', stringToCopy);
       Clipboard.setString(stringToCopy);
       // Clipboard.setString(JSON.stringify(data));
     }
@@ -81,9 +81,13 @@ const ParticipantView = (props: {showText?: boolean}) => {
         style={!data ? [style.backIcon] : style.backIcon}
         source={{uri: icons.clipboard}}
       />
-      {props.showText ?
-        <Text style={{color: $config.PRIMARY_FONT_COLOR}}>Copy Meeting Invite</Text>
-        :<></>}
+      {props.showText ? (
+        <Text style={{color: $config.PRIMARY_FONT_COLOR}}>
+          Скопировать приглашение
+        </Text>
+      ) : (
+        <></>
+      )}
     </TouchableOpacity>
   );
 };

@@ -14,16 +14,16 @@ import {TouchableOpacity, Image, View, StyleSheet} from 'react-native';
 import ChatContext, {controlMessageEnum} from '../components/ChatContext';
 import icons from '../assets/icons';
 import ColorContext from '../components/ColorContext';
-import { gql, useMutation } from '@apollo/client';
-import { useParams } from '../components/Router';
+import {gql, useMutation} from '@apollo/client';
+import {useParams} from '../components/Router';
 
 const MUTE_PSTN = gql`
-mutation mutePSTN ($uid: Int!, $passphrase: String!, $mute: Boolean!) {
-  mutePSTN (uid: $uid, passphrase: $passphrase, mute: $mute) {
+  mutation mutePSTN($uid: Int!, $passphrase: String!, $mute: Boolean!) {
+    mutePSTN(uid: $uid, passphrase: $passphrase, mute: $mute) {
       uid
       mute
+    }
   }
-}
 `;
 
 /**
@@ -44,10 +44,14 @@ const RemoteAudioMute = (props: {
   return props.isHost ? (
     <TouchableOpacity
       onPress={() => {
-        if(String(props.uid)[0] === '1')
-          mutePSTN({variables: {
-            uid: props.uid, passphrase: phrase, mute: props.audio
-          }})
+        if (String(props.uid)[0] === '1')
+          mutePSTN({
+            variables: {
+              uid: props.uid,
+              passphrase: phrase,
+              mute: props.audio,
+            },
+          });
         else sendControlMessageToUid(controlMessageEnum.muteAudio, props.uid);
       }}>
       <Image

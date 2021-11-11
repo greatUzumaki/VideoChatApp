@@ -58,12 +58,12 @@ const Precall = (props: any) => {
           <TextInput
             value={username}
             onChangeText={(text) => {
-              if (username !== 'Getting name...') {
+              if (username !== 'Получение имени...') {
                 setUsername(text);
               }
             }}
             onSubmitEditing={() => {}}
-            placeholder="Display Name"
+            placeholder="Отображаемое имя"
           />
         </View>
       ) : (
@@ -71,12 +71,12 @@ const Precall = (props: any) => {
           <TextInput
             value={username}
             onChangeText={(text) => {
-              if (username !== 'Getting name...') {
+              if (username !== 'Получение имени...') {
                 setUsername(text);
               }
             }}
             onSubmitEditing={() => {}}
-            placeholder="Display Name"
+            placeholder="Отображаемое имя"
           />
         </View>
       )}
@@ -98,7 +98,7 @@ const Precall = (props: any) => {
           {/* {queryComplete ? 'Join Room' : 'Loading...'} */}
         {/* </Text> */}
       {/* </TouchableOpacity> */}
-      <PrimaryButton text={"Join Room"} disabled={!queryComplete} onPress={() => setCallActive(true)} />
+      <PrimaryButton text={"Присоедениться к комнате"} disabled={!queryComplete} onPress={() => setCallActive(true)} />
       </View>
       {/* </ImageBackground> */}
     </View>

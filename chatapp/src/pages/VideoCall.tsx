@@ -219,7 +219,7 @@ enum RnEncryptionEnum {
 
 const VideoCall: React.FC = () => {
   const {store} = useContext(StorageContext);
-  const [username, setUsername] = useState('Getting name...');
+  const [username, setUsername] = useState('Получение имени...');
   const [participantsView, setParticipantsView] = useState(false);
   const [callActive, setCallActive] = useState($config.PRECALL ? false : true);
   const [layout, setLayout] = useState(Layout.Grid);
@@ -288,7 +288,7 @@ const VideoCall: React.FC = () => {
     isHost = data.joinChannel.isHost;
     title = data.joinChannel.title;
     console.log('query done: ', data, queryComplete);
-    if (username === 'Getting name...') {
+    if (username === 'Получение имени...') {
       if (data.getUser) {
         setUsername(data.getUser.name);
       } else {

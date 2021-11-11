@@ -109,7 +109,7 @@ const RtmConfigure = (props: any) => {
                 screenUid: parseInt(attr?.attributes?.screenUid),
               },
               [parseInt(attr?.attributes?.screenUid)]: {
-                name: `${attr?.attributes?.name || 'User'}'s screenshare`,
+                name: `${attr?.attributes?.name || 'User'}'s демонстрация`,
                 type: UserType.ScreenShare,
               },
             };

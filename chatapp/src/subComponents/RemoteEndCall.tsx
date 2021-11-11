@@ -25,7 +25,8 @@ const RemoteEndCall = (props: {uid: number; isHost: boolean}) => {
       <Image
         style={style.buttonIconEnd}
         source={{uri: icons.endCall}}
-        resizeMode={'contain'}/>
+        resizeMode={'contain'}
+      />
     </TouchableOpacity>
   ) : (
     <></>

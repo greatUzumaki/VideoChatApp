@@ -48,7 +48,7 @@ const Recording = (props: any) => {
 
   useEffect(()=>{
     if(recordingActive)
-      Toast.show({text1: 'Recording Started', visibilityTime: 1000})
+      Toast.show({text1: 'Запись начата', visibilityTime: 1000})
     // else if(!recordingActive)
       // Toast.show({text1: 'Recording Finished', visibilityTime: 1000})
   },[recordingActive])
@@ -115,7 +115,7 @@ const Recording = (props: any) => {
           marginTop: 5,
           color: recordingActive ? '#FD0845' : $config.PRIMARY_COLOR,
         }}>
-        {recordingActive ? 'Recording' : 'Record'}
+        {recordingActive ? 'Запись' : 'Записывать'}
       </Text>
     </TouchableOpacity>
   );

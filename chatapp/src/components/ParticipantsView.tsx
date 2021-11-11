@@ -75,7 +75,7 @@ const ParticipantView = (props: any) => {
                       <Text style={style.participantText}>
                         {userList[localUid]
                           ? userList[localUid].name + ' '
-                          : 'You '}
+                          : 'Вы '}
                       </Text>
                       <View style={style.participantButtonContainer}>
                         <LocalUserContext>
@@ -88,8 +88,8 @@ const ParticipantView = (props: any) => {
                     <View style={style.participantContainer} key={user.uid}>
                       <Text style={style.participantText}>
                         {userList[localUid]
-                          ? userList[localUid].name + "'s screenshare "
-                          : 'Your screenshare '}
+                          ? userList[localUid].name + " демонстрация "
+                          : 'Ваша демонстрация '}
                       </Text>
                     </View>
                   ) : (
@@ -98,7 +98,7 @@ const ParticipantView = (props: any) => {
                         {userList[user.uid]
                           ? userList[user.uid].name + ' '
                           : String(user.uid)[0] === '1'
-                            ? 'PSTN User ' : 'User '}
+                            ? 'PSTN Пользователь ' : 'Пользователь '}
                       </Text>
                       {userList[user.uid]?.type !== UserType.ScreenShare ? (
                         <View style={style.participantButtonContainer}>

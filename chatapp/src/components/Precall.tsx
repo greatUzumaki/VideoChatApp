@@ -94,18 +94,18 @@ const Precall = (props: any) => {
               <TextInput
                 value={username}
                 onChangeText={(text) => {
-                  if (username !== 'Getting name...') {
+                  if (username !== 'Получение имени...') {
                     setUsername(text);
                   }
                 }}
                 onSubmitEditing={() => {}}
-                placeholder="Display Name"
+                placeholder="Отображаемое имя"
               />
               <View style={style.margin5Btm} />
               <PrimaryButton
                 onPress={() => setCallActive(true)}
                 disabled={!queryComplete}
-                text={queryComplete ? 'Join Room' : 'Loading...'}
+                text={queryComplete ? 'Присоедениться к комнате' : 'Загрузка...'}
               />
             </View>
           ) : (
@@ -154,18 +154,18 @@ const Precall = (props: any) => {
                 <TextInput
                   value={username}
                   onChangeText={(text) => {
-                    if (username !== 'Getting name...') {
+                    if (username !== 'Получение имени...') {
                       setUsername(text);
                     }
                   }}
                   onSubmitEditing={() => {}}
-                  placeholder="Display Name"
+                  placeholder="Отображаемое имя"
                 />
                 <View style={{height: 20}} />
                 <PrimaryButton
                   onPress={() => setCallActive(true)}
                   disabled={!queryComplete}
-                  text={queryComplete ? 'Join Room' : 'Loading...'}
+                  text={queryComplete ? 'Присоедениться к комнате' : 'Загрузка...'}
                 />
               </View>
             </View>
