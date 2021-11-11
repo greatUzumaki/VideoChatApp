@@ -222,7 +222,7 @@ const ScreenshareButton = (props: ScreenSharingProps) => {
           marginTop: 5,
           color: $config.PRIMARY_COLOR,
         }}>
-        Share
+        Демонстрация
       </Text>
     </TouchableOpacity>
   );

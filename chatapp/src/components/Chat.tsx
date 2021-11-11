@@ -71,7 +71,13 @@ const Chat = (props: any) => {
   };
   return (
     <View
-    style={Platform.OS === 'web' ? !isSmall ? style.chatView : style.chatViewNative: style.chatViewNative}>
+      style={
+        Platform.OS === 'web'
+          ? !isSmall
+            ? style.chatView
+            : style.chatViewNative
+          : style.chatViewNative
+      }>
       {/* <View style={style.heading}>
         <TouchableOpacity
           style={style.backButton}
@@ -104,7 +110,7 @@ const Chat = (props: any) => {
             </View>
           ) : null}
           <Text style={groupActive ? style.groupTextActive : style.groupText}>
-            Group
+            Группа
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -126,7 +132,7 @@ const Chat = (props: any) => {
             </View>
           ) : null}
           <Text style={!groupActive ? style.groupTextActive : style.groupText}>
-            Private
+            Приват
           </Text>
         </TouchableOpacity>
       </View>
@@ -145,7 +151,11 @@ const Chat = (props: any) => {
           />
           {Platform.OS === 'ios' ? (
             <View>
-              <View style={{backgroundColor: $config.SECONDARY_FONT_COLOR, paddingBottom: 10}}>
+              <View
+                style={{
+                  backgroundColor: $config.SECONDARY_FONT_COLOR,
+                  paddingBottom: 10,
+                }}>
                 <View
                   style={{
                     backgroundColor: $config.PRIMARY_FONT_COLOR + '80',
@@ -161,7 +171,11 @@ const Chat = (props: any) => {
               </View>
             </View>
           ) : (
-            <View style={{backgroundColor: $config.SECONDARY_FONT_COLOR, paddingBottom: 10}}>
+            <View
+              style={{
+                backgroundColor: $config.SECONDARY_FONT_COLOR,
+                paddingBottom: 10,
+              }}>
               <View
                 style={{
                   backgroundColor: $config.PRIMARY_FONT_COLOR + '80',
@@ -181,49 +195,53 @@ const Chat = (props: any) => {
         <>
           {!privateActive ? (
             <ScrollView>
-            <MinUidConsumer>
-              {(minUsers) => (
-                <MaxUidConsumer>
-                  {(maxUser) =>
-                    [...minUsers, ...maxUser].map((user) => {
-                      if (
-                        user.uid !== 'local' &&
-                        user.uid !== 1 &&
-                        userList[user.uid]?.type !== UserType.ScreenShare
-                      ) {
-                        return (
-                          <TouchableOpacity
-                            style={style.participantContainer}
-                            key={user.uid}
-                            onPress={() => {
-                              selectUser(user);
-                              setPrivateMessageLastSeen({
-                                userId: user.uid,
-                                lastSeenCount: privateMessageCountMap[user.uid],
-                              });
-                            }}>
-                            {(privateMessageCountMap[user.uid] || 0) -
-                              (lastCheckedPrivateState[user.uid] || 0) !==
-                            0 ? (
-                              <View style={style.chatNotification}>
-                                {(privateMessageCountMap[user.uid] || 0) -
-                                  (lastCheckedPrivateState[user.uid] || 0)}
-                              </View>
-                            ) : null}
-                            <Text style={style.participantText}>
-                              {userList[user.uid]
-                                ? userList[user.uid].name + ' '
-                                : 'User '}
-                            </Text>
-                            <Text style={{color: $config.PRIMARY_FONT_COLOR}}>{`>`}</Text>
-                          </TouchableOpacity>
-                        );
-                      }
-                    })
-                  }
-                </MaxUidConsumer>
-              )}
-            </MinUidConsumer>
+              <MinUidConsumer>
+                {(minUsers) => (
+                  <MaxUidConsumer>
+                    {(maxUser) =>
+                      [...minUsers, ...maxUser].map((user) => {
+                        if (
+                          user.uid !== 'local' &&
+                          user.uid !== 1 &&
+                          userList[user.uid]?.type !== UserType.ScreenShare
+                        ) {
+                          return (
+                            <TouchableOpacity
+                              style={style.participantContainer}
+                              key={user.uid}
+                              onPress={() => {
+                                selectUser(user);
+                                setPrivateMessageLastSeen({
+                                  userId: user.uid,
+                                  lastSeenCount:
+                                    privateMessageCountMap[user.uid],
+                                });
+                              }}>
+                              {(privateMessageCountMap[user.uid] || 0) -
+                                (lastCheckedPrivateState[user.uid] || 0) !==
+                              0 ? (
+                                <View style={style.chatNotification}>
+                                  {(privateMessageCountMap[user.uid] || 0) -
+                                    (lastCheckedPrivateState[user.uid] || 0)}
+                                </View>
+                              ) : null}
+                              <Text style={style.participantText}>
+                                {userList[user.uid]
+                                  ? userList[user.uid].name + ' '
+                                  : 'User '}
+                              </Text>
+                              <Text
+                                style={{
+                                  color: $config.PRIMARY_FONT_COLOR,
+                                }}>{`>`}</Text>
+                            </TouchableOpacity>
+                          );
+                        }
+                      })
+                    }
+                  </MaxUidConsumer>
+                )}
+              </MinUidConsumer>
             </ScrollView>
           ) : (
             <>
@@ -237,8 +255,12 @@ const Chat = (props: any) => {
                     : 'Пользователь '
                 }
               />
-                <View>
-                <View style={{backgroundColor: $config.SECONDARY_FONT_COLOR, paddingBottom: 10}}>
+              <View>
+                <View
+                  style={{
+                    backgroundColor: $config.SECONDARY_FONT_COLOR,
+                    paddingBottom: 10,
+                  }}>
                   <View
                     style={{
                       backgroundColor: $config.PRIMARY_FONT_COLOR + '80',

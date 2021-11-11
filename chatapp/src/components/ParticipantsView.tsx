@@ -62,7 +62,7 @@ const ParticipantView = (props: any) => {
           style={style.backIcon}
           source={{uri: icons.backBtn}}
         /> */}
-        <Text style={style.heading}>Participants</Text>
+        <Text style={style.heading}>Участники</Text>
       </TouchableOpacity>
       <ScrollView style={{flex: 1}}>
         <MinUidConsumer>

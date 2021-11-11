@@ -31,7 +31,7 @@ const SettingsView = (props: any) => {
         Platform.OS === 'web' ? style.settingsView : style.settingsViewNative
       }>
       <View style={style.main}>
-        <Text style={style.heading}>Select Input Device</Text>
+        <Text style={style.heading}>Выберите устройство ввода</Text>
         <View style={style.popupPickerHolder}>
           <SelectDevice />
         </View>
@@ -49,8 +49,8 @@ const style = StyleSheet.create({
     paddingVertical: 5,
     flexGrow: 1,
     shadowColor: $config.PRIMARY_FONT_COLOR + '80',
-    shadowOpacity: .5,
-    shadowOffset: {width:-2, height: 0},
+    shadowOpacity: 0.5,
+    shadowOffset: {width: -2, height: 0},
     shadowRadius: 3,
     paddingHorizontal: 20,
   },
